@@ -17,7 +17,11 @@ const urbanist = Urbanist({
   display: "swap",
 });
 
+const siteHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
 export const metadata: Metadata = {
+  // Absolute base for the share image (link previews on WhatsApp, LinkedIn, etc.).
+  metadataBase: siteHost ? new URL(`https://${siteHost}`) : undefined,
   title: "OkayChat — Book a Demo | Contact & Social",
   description: `${brand.tagline} ${brand.description} Call, WhatsApp, or book a free 30-minute Google Meet demo.`,
   openGraph: {
